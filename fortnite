@@ -1,0 +1,30 @@
+class Player:
+    def __init__(self, username):
+        self.username = username
+        self.inventory = []
+
+    def add_item(self, item):
+        self.inventory.append(item)
+        print(f"Added {item} to {self.username}'s inventory.")
+
+    def remove_item(self, item):
+        if item in self.inventory:
+            self.inventory.remove(item)
+            print(f"Removed {item} from {self.username}'s inventory.")
+        else:
+            print(f"{self.username}'s inventory does not contain {item}.")
+
+    def display_inventory(self):
+        print(f"{self.username}'s Inventory:")
+        for item in self.inventory:
+            print(item)
+
+
+# Example usage:
+if __name__ == "__main__":
+    player1 = Player("Player1")
+    player1.add_item("Shotgun")
+    player1.add_item("Medkit")
+    player1.display_inventory()
+    player1.remove_item("Shotgun")
+    player1.display_inventory()
